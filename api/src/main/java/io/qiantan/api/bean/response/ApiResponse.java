@@ -45,7 +45,7 @@ public class ApiResponse<T> extends ApiBean {
             return this;
         }
 
-        public ApiResponse<T> build() {
+        public ApiResponse<UserInfo> build() {
             return new ApiResponse(this.data);
         }
 

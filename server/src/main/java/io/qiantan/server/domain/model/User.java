@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -19,9 +20,12 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="user_info")
+@Table(name="user_info",
+        uniqueConstraints = {@UniqueConstraint(name ="unique_name_idx", columnNames = {"name"})})
 @ApiModel(value = "用户信息表")
-public class User {
+public class User implements Serializable {
+
+    private static final long serialVersionUID = -4662807771466245925L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

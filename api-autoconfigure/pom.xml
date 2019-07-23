@@ -12,10 +12,16 @@
     <artifactId>api-autoconfigure</artifactId>
 
     <dependencies>
+
         <dependency>
             <groupId>com.qiantan</groupId>
             <artifactId>api</artifactId>
             <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.boot</groupId>
+            <artifactId>dubbo-spring-boot-starter</artifactId>
         </dependency>
     </dependencies>
 </project>

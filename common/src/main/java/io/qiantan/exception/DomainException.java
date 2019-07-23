@@ -2,14 +2,17 @@ package io.qiantan.exception;
 
 import io.qiantan.constant.ErrorCode;
 import io.qiantan.constant.ErrorType;
+import io.qiantan.utils.ExceptionUtil;
+import io.qiantan.utils.JsonUtil;
 
 import java.util.Objects;
 
 /**
  * @author: yujiacheng
- * @date: 2019/5/2810:02 PM
+ * @date: 2019/7/2311:34 PM
  */
 public class DomainException extends RuntimeException {
+
     private static final long serialVersionUID = 6681526750132863682L;
     private String moduleCode;
     private ErrorType errorType;

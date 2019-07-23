@@ -2,10 +2,11 @@ package io.qiantan.exception;
 
 import io.qiantan.constant.ErrorCode;
 import io.qiantan.constant.ErrorType;
+import io.qiantan.utils.JsonUtil;
 
 /**
  * @author: yujiacheng
- * @date: 2019/5/2810:00 PM
+ * @date: 2019/7/2311:36 PM
  */
 public class ApiException extends Exception {
     private static long serialVersionUID = -8787516993124229948L;
@@ -14,7 +15,6 @@ public class ApiException extends Exception {
     private String errorType;
     private String errorCode;
     private String errorMessage;
-    private Object[] params;
 
     public ApiException(String serviceType, ErrorType errorType) {
         this(serviceType, errorType, errorType.getMessage());
@@ -41,10 +41,6 @@ public class ApiException extends Exception {
     }
 
     public ApiException(String serviceType, String moduleCode, ErrorType errorType, String errorCode, String errorMessage) {
-        this(serviceType, moduleCode, errorType, errorCode, errorMessage, (Object[])null);
-    }
-
-    public ApiException(String serviceType, String moduleCode, ErrorType errorType, String errorCode, String errorMessage, Object[] params) {
         super(errorMessage);
         this.serviceType = null;
         if (serviceType != null) {
@@ -53,8 +49,11 @@ public class ApiException extends Exception {
             this.errorType = errorType.getCode();
             this.errorCode = errorCode;
             this.errorMessage = errorMessage;
-            this.params = params;
         }
+    }
+
+    public String toString() {
+        return JsonUtil.getIndentJsonString(this);
     }
 
     public synchronized Throwable fillInStackTrace() {
@@ -79,10 +78,6 @@ public class ApiException extends Exception {
 
     public String getErrorMessage() {
         return this.errorMessage;
-    }
-
-    public Object[] getParams() {
-        return this.params;
     }
 
     public ApiException() {

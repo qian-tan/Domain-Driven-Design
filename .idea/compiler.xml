@@ -9,6 +9,8 @@
         <module name="api" />
         <module name="api-autoconfigure" />
         <module name="common" />
+        <module name="schedule" />
+        <module name="schedule-starter" />
         <module name="server" />
         <module name="starter" />
         <module name="web" />
@@ -20,6 +22,8 @@
       <module name="api-autoconfigure" target="1.8" />
       <module name="common" target="1.8" />
       <module name="Domain-Driven-Design" target="1.8" />
+      <module name="schedule" target="1.8" />
+      <module name="schedule-starter" target="1.8" />
       <module name="server" target="1.8" />
       <module name="starter" target="1.8" />
       <module name="web" target="1.8" />

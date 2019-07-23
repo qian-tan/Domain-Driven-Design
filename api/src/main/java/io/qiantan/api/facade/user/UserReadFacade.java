@@ -1,7 +1,8 @@
 package io.qiantan.api.facade.user;
 
-import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
+import io.qiantan.api.bean.request.UserFindByIdRequest;
 import io.qiantan.api.bean.response.ApiResponse;
+import io.qiantan.api.bean.response.UserInfo;
 
 /**
  * @author: yujiacheng
@@ -9,5 +10,5 @@ import io.qiantan.api.bean.response.ApiResponse;
  */
 public interface UserReadFacade {
 
-    ApiResponse<BIConversion.User> findById();
+    ApiResponse<UserInfo> findById(UserFindByIdRequest findByIdRequest);
 }
