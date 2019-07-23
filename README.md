@@ -12,9 +12,11 @@
 * web-starter: rest api starter，很薄的一层
 * common : 公共工具类库，比如es、异常等
 * api : 定义服务提供方提供的facade api, 要暴露的服务接口放在这个模块
+* 本质上系统如果有对内运营/管理员使用可以增加admin/admin-starter模块提供相关rest api接口，适当做权限控制
 
 ### 启动demo
 * starter模块CoreBootstrap，目前只有一个dubbo服务provider类UserReadFacadeImpl
 * web-starter模块RestBootstrap，dubbo消费者，rest api（UserApi）
+
 
 后续继续补充
