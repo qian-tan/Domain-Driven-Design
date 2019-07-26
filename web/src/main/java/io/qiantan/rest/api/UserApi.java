@@ -11,8 +11,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * @author: yujiacheng
- * @date: 2019/6/235:52 PM
+ * @author yujiacheng
+ * @date 2019/6/235:52 PM
  */
 @Slf4j
 @RestController

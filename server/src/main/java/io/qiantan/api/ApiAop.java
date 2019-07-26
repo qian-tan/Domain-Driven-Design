@@ -15,10 +15,10 @@ import org.springframework.util.ObjectUtils;
  * @author: yujiacheng
  * @date: 2019/7/2311:33 PM
  */
-@Aspect
-@Component
-@Order(0)
-@SuppressWarnings("unused")
+//@Aspect
+//@Component
+//@Order(0)
+//@SuppressWarnings("unused")
 public class ApiAop{
 
     @Pointcut(value = "within(io.qiantan.api.facade..*)")

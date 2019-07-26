@@ -6,6 +6,7 @@ import io.qiantan.server.domain.model.User;
 import io.qiantan.server.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -25,12 +26,19 @@ public class UserReadService {
         this.userRepository = userRepository;
     }
 
+    /**
+     *
+     * @param id 用户ID redis key: UserCache::findById{id}
+     * @return  用户信息
+     */
+    @Cacheable(value = "UserCache", key = "methodName +#p0")
     public User findById(Long id) {
         try {
             if (log.isDebugEnabled()) {
                 log.debug("UserReadService findById id {} ", id);
             }
             Optional<User> byId = userRepository.findById(id);
+            log.info("find user from db......");
             return byId.orElse(null);
         } catch (ServiceException e) {
             log.error("UserReadService findById id {}, cause : {}",

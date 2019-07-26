@@ -11,5 +11,14 @@
 
     <artifactId>schedule-starter</artifactId>
 
+    <dependencies>
+
+        <dependency>
+            <groupId>com.qiantan</groupId>
+            <artifactId>schedule</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+    </dependencies>
 
 </project>

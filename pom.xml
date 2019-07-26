@@ -26,6 +26,7 @@
         <module>common</module>
         <module>schedule</module>
         <module>schedule-starter</module>
+        <module>tests</module>
     </modules>
 
     <properties>
