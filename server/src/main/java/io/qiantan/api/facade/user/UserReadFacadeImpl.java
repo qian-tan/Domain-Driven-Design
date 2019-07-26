@@ -26,8 +26,6 @@ public class UserReadFacadeImpl implements UserReadFacade {
     @Override
     public ApiResponse<UserInfo> findById(UserFindByIdRequest findByIdRequest) {
         UserInfo userInfo = UserConverter.convertToUserInfo(userReadService.findById(findByIdRequest.getUserId()));
-        return ApiResponse.builder()
-                .data(userInfo)
-                .build();
+        return ApiResponse.ok(userInfo);
     }
 }

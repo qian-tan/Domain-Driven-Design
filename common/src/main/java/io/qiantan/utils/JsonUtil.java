@@ -13,12 +13,37 @@ import java.util.Objects;
  * @author: yujiacheng
  * @date: 2019/7/2311:39 PM
  */
+@SuppressWarnings("all")
 public abstract class JsonUtil {
     private static final ObjectMapper INDENT_OBJECT_MAPPER_NON_EMPTY = new ObjectMapper();
     private static final ObjectMapper INDENT_OBJECT_MAPPER = new ObjectMapper();
     private static final ObjectMapper NON_INDENT_OBJECT_MAPPER = new ObjectMapper();
 
     public JsonUtil() {
+    }
+
+    public static String getNonIndentJsonString(Object o) {
+        if (Objects.isNull(o)) {
+            return "";
+        } else {
+            try {
+                return NON_INDENT_OBJECT_MAPPER.writeValueAsString(o);
+            } catch (Exception var2) {
+                return o.toString();
+            }
+        }
+    }
+
+    public static String getIndentNonEmptyJsonString(Object o) {
+        if (Objects.isNull(o)) {
+            return "";
+        } else {
+            try {
+                return INDENT_OBJECT_MAPPER.writeValueAsString(o);
+            } catch (Exception var2) {
+                return o.toString();
+            }
+        }
     }
 
     public static String getIndentJsonString(Object o) {

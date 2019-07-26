@@ -1,5 +1,7 @@
 package io.qiantan.server.service.user;
 
+import com.google.common.base.Throwables;
+import io.qiantan.exception.ServiceException;
 import io.qiantan.server.domain.model.User;
 import io.qiantan.server.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -24,10 +26,20 @@ public class UserReadService {
     }
 
     public User findById(Long id) {
-        Optional<User> byId = userRepository.findById(id);
-        if(byId.isPresent()) {
-            return byId.get();
+        try {
+            if (log.isDebugEnabled()) {
+                log.debug("UserReadService findById id {} ", id);
+            }
+            Optional<User> byId = userRepository.findById(id);
+            return byId.orElse(null);
+        } catch (ServiceException e) {
+            log.error("UserReadService findById id {}, cause : {}",
+                    id, Throwables.getStackTraceAsString(e));
+            throw new ServiceException(e.getMessage());
+        } catch (Exception e) {
+            log.error("UserReadService findById id {}, cause : {}",
+                    id, Throwables.getStackTraceAsString(e));
+            throw new ServiceException("未找到用户");
         }
-        return null;
     }
 }

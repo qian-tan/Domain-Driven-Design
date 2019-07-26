@@ -2,6 +2,7 @@ package io.qiantan.api.bean.request;
 
 import io.qiantan.api.consts.operation.OperationType;
 import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiParam;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,6 +21,7 @@ public class UserFindByIdRequest extends AbstractRequest {
 
     private static final long serialVersionUID = 6775326074118009149L;
 
+    @ApiParam(value = "用户ID")
     private Long userId;
 
     @Override

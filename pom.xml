@@ -36,6 +36,7 @@
         <joda.version>2.10.2</joda.version>
         <lombok.version>1.18.8</lombok.version>
         <dubbo.version>0.2.0</dubbo.version>
+        <springfox-swagger.version>2.7.0</springfox-swagger.version>
     </properties>
 
     <dependencyManagement>
@@ -100,6 +101,18 @@
                 <groupId>com.alibaba.boot</groupId>
                 <artifactId>dubbo-spring-boot-starter</artifactId>
                 <version>${dubbo.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${springfox-swagger.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${springfox-swagger.version}</version>
             </dependency>
 
         </dependencies>
