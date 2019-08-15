@@ -39,5 +39,10 @@
             <artifactId>guava</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>QLExpress</artifactId>
+        </dependency>
+
     </dependencies>
 </project>

@@ -8,6 +8,6 @@ import org.springframework.context.annotation.Configuration;
  * @date: 2019/7/2610:32 AM
  */
 @Configuration
-@ComponentScan("io.qiantan.api.facade")
+@ComponentScan(basePackages = {"io.qiantan.api.facade","io.qiantan.server"})
 public class ServerConfiguration {
 }

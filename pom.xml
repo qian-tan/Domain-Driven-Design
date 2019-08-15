@@ -38,6 +38,7 @@
         <lombok.version>1.18.8</lombok.version>
         <dubbo.version>0.2.0</dubbo.version>
         <springfox-swagger.version>2.7.0</springfox-swagger.version>
+        <express.version>3.2.0</express.version>
     </properties>
 
     <dependencyManagement>
@@ -114,6 +115,12 @@
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-swagger-ui</artifactId>
                 <version>${springfox-swagger.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>QLExpress</artifactId>
+                <version>3.2.0</version>
             </dependency>
 
         </dependencies>
