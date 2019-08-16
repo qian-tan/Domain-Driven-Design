@@ -1,8 +1,10 @@
 package io.qiantan.api.bean.response;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.google.common.base.MoreObjects;
 import io.qiantan.api.bean.ApiBean;
 import io.swagger.annotations.ApiModel;
+import lombok.Data;
 
 import java.util.Objects;
 import java.util.function.Supplier;
@@ -12,7 +14,11 @@ import java.util.function.Supplier;
  * @date: 2019/5/289:52 PM
  */
 @ApiModel(description = "接口应答")
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@Data
 public class ApiResponse<T> extends ApiBean {
+
+    private static final long serialVersionUID = 1223945458412966983L;
 
     private boolean success; //调用是否成功
     private T result;       // 如果success = true,则通过result可以获得调用结果
@@ -20,43 +26,7 @@ public class ApiResponse<T> extends ApiBean {
     private String error;   // 如果success = false,则通过error可以查看错误信息
     private String sourceIp;    // 出问题的服务IP
     private String sourceStack;     // 问题堆栈
-
-    public boolean isSuccess() {
-        return success;
-    }
-
-    public void setSuccess(boolean success) {
-        this.success = success;
-    }
-
-    private void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public boolean errorOf(String codeToCompare) {
-        return Objects.equals(code, codeToCompare);
-    }
-
-    public void setSourceIp(String sourceIp) {
-        this.sourceIp = sourceIp;
-    }
-
-    public String getSourceIp() {
-        return sourceIp;
-    }
-
-    public void setSourceStack(String sourceStack) {
-        this.sourceStack = sourceStack;
-    }
-
-    public String getSourceStack() {
-        return sourceStack;
-    }
-
+    private String traceId;
 
     public T getResult() {
         return result;
